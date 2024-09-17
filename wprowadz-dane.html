@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wprowadź dane auta</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="wprowadz-dane.html">Wprowadź dane auta</a></li>
+            <li><a href="wyszukajauto.html">Wyszukaj auto</a></li>
+            <li><a href="#">Wyświetl wszystkie samochody z ostatniego tygodnia</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Wprowadź dane auta</h1>
+
+        <form action="#" method="post">
+            <label for="rejestracja">Numer rejestracyjny:</label>
+            <input type="text" id="rejestracja" name="rejestracja" required>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data" required>
+
+            <label for="imie">Imię:</label>
+            <input type="text" id="imie" name="imie" required>
+
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" id="nazwisko" name="nazwisko" required>
+
+            <label for="marka">Marka:</label>
+            <input type="text" id="marka" name="marka" required>
+
+            <label for="model">Model:</label>
+            <input type="text" id="model" name="model" required>
+
+            <!-- Sekcja dla napraw -->
+            <div id="repair-sections">
+                <div class="repair-section">
+                    <div class="form-row">
+                        <div>
+                            <label for="nazwa-naprawy-1">Nazwa naprawy:</label>
+                            <input type="text" id="nazwa-naprawy-1" name="nazwa-naprawy[]" required>
+                        </div>
+                        <div class="price-container">
+                            <label for="cena-1">Cena:</label>
+                            <input type="number" id="cena-1" name="cena[]" max="10000" required>
+                        </div>
+                        <button type="button" class="remove-repair-btn" onclick="removeRepairSection(this)">X</button>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="add-repair-btn" onclick="addRepairSection()">Dodaj kolejną naprawę</button>
+
+            <label for="zalecenia">Zalecenia:</label>
+            <textarea id="zalecenia" name="zalecenia" rows="4"></textarea>
+
+            <button type="submit">Zapisz dane</button>
+        </form>
+    </div>
+
+    <script>
+        let repairCount = 1;
+
+        function addRepairSection() {
+            repairCount++;
+
+            const repairSection = document.createElement('div');
+            repairSection.className = 'repair-section';
+
+            repairSection.innerHTML = `
+                <div class="form-row">
+                    <div class repair-container>
+                        <label for="nazwa-naprawy-${repairCount}">Nazwa naprawy:</label>
+                        <input type="text" id="nazwa-naprawy-${repairCount}" name="nazwa-naprawy[]" required>
+                    </div>
+                    <div class="price-container">
+                        <label for="cena-${repairCount}">Cena:</label>
+                        <input type="text" id="cena-${repairCount}" name="cena[]" required>
+                    </div>
+                    <button type="button" class="remove-repair-btn" onclick="removeRepairSection(this)">X</button>
+                </div>
+            `;
+
+            document.getElementById('repair-sections').appendChild(repairSection);
+        }
+
+        function removeRepairSection(button) {
+            const section = button.closest('.repair-section');
+            section.remove();
+        }
+    </script>
+
+</body>
+</html>

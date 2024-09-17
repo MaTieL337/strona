@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyszukiwanie Samochodów</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="wprowadz-dane.html">Wprowadź dane auta</a></li>
+            <li><a href="wyszukajauto.html">Wyszukaj auto</a></li>
+            <li><a href="#">Wyświetl wszystkie samochody z ostatniego tygodnia</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Wyszukaj Samochód</h1>
+
+        <form action="#" method="get">
+            <label for="rejestracja">Numer rejestracyjny:</label>
+            <input type="text" id="rejestracja" name="rejestracja">
+
+            <div class="form-row">
+                <div>
+                    <label for="marka">Marka:</label>
+                    <input type="text" id="marka" name="marka">
+                </div>
+                <div>
+                    <label for="model">Model:</label>
+                    <input type="text" id="model" name="model">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="imie">Imię właściciela:</label>
+                    <input type="text" id="imie" name="imie">
+                </div>
+                <div>
+                    <label for="nazwisko">Nazwisko właściciela:</label>
+                    <input type="text" id="nazwisko" name="nazwisko">
+                </div>
+            </div>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data">
+
+            <button type="submit">Wyszukaj</button>
+        </form>
+    </div>
+
+</body>
+</html>
