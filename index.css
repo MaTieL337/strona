@@ -161,3 +161,19 @@ nav:after {
     display: table;
     clear: both;
 }
+
+#marka {
+    width: 92%;
+}
+#model{
+    width: 92%;
+}
+#nazwisko{
+    width: 92%;
+}
+#imie{
+    width: 92%;
+}
+#szukaj{
+    width: 104%;
+}
