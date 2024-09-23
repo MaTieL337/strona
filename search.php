@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Build the search query based on the form inputs
-$query = "SELECT auto.rejstracja, auto.model, auto.marka, klient.imie, klient.nazwisko, klient.tel, naprawa.data, naprawa.zalecenia , naprawa.przebieg
+$query = "SELECT auto.rejstracja, auto.model, auto.marka, klient.imie, klient.nazwisko, klient.tel, naprawa.id_naprawa, naprawa.data, naprawa.zalecenia , naprawa.przebieg
           FROM auto 
           INNER JOIN klient ON auto.id_klient = klient.id_klient
           INNER JOIN naprawa ON auto.id_auto = naprawa.id_auto 
@@ -115,9 +115,9 @@ $result = $conn->query($query);
                             <td><?php echo htmlspecialchars($row['tel']); ?></td>
                             <td><?php echo htmlspecialchars($row['data']); ?></td>
                             <td><?php echo htmlspecialchars($row['zalecenia']); ?></td>
-                            <td><button id="usun">Usuń</button></td>
-                            <td><button id="edytuj">Edytuj</button></td>
-                            <td><button id="wyswietl">Wyświetl</button></td>
+                            <td> <a href="usun.php"> <button id="usun">Usuń</button> </a> </td>
+                            <td> <a href="edytuj.php"> <button id="edytuj">Edytuj</button>  </a> </td>
+                            <td> <a href="wyswietl.php"> <button id="wyswietl">Wyświetl</button>  </a> </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
