@@ -50,7 +50,8 @@ button:hover {
     width: 48%;
 }
 .container {
-    max-width: 600px;
+    width: fit-content;
+    min-width: 600px;
     margin: 40px auto;
     padding: 20px;
     padding-right: 35px;
@@ -182,4 +183,39 @@ nav:after {
 }
 #rejestracja{
     width: 92%;
+}
+.marka{
+    width: 100%;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+ th, td, thead {
+    border: 1px solid gray;
+    padding: 7px;
+    margin: 0;
+    font-size: large;
+} 
+th{
+    background-color: lightgray;
+}
+.zalecenia{
+    width: 30%;
+}
+#usun{
+    background-color: red;
+    margin: 0;
+}
+#usun:hover {
+    background-color: darkred;
+}
+#edytuj, #wyswietl{
+    background-color: grey;
+    margin: 0;
+}
+#edytuj:hover, #wyswietl:hover{
+    background-color: #525151;
 }

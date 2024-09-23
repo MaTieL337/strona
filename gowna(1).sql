@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 18 Wrz 2024, 09:18
+-- Czas generowania: 23 Wrz 2024, 14:30
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.1.2
 
@@ -30,10 +30,21 @@ SET time_zone = "+00:00";
 CREATE TABLE `auto` (
   `id_auto` int(11) NOT NULL,
   `rejstracja` varchar(10) NOT NULL,
-  `model` int(20) NOT NULL,
-  `marka` int(20) NOT NULL,
+  `model` varchar(30) NOT NULL,
+  `marka` varchar(30) NOT NULL,
   `id_klient` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `auto`
+--
+
+INSERT INTO `auto` (`id_auto`, `rejstracja`, `model`, `marka`, `id_klient`) VALUES
+(1, '123', '0', '0', 1),
+(2, '123', 'asdgsdgsd', 'safwdsgsd', 2),
+(3, '123', 'asdgsdgsd', 'safwdsgsd', 3),
+(4, '123', 'asdgsdgsd', 'safwdsgsd', 4),
+(5, '', '', '', 5);
 
 -- --------------------------------------------------------
 
@@ -46,6 +57,20 @@ CREATE TABLE `cena` (
   `cena` int(11) NOT NULL,
   `naprawa` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `cena`
+--
+
+INSERT INTO `cena` (`id_cena`, `cena`, `naprawa`) VALUES
+(1, 2412, 'gsdgdsg'),
+(2, 2412, 'gsdgdsg'),
+(3, 245333, 'gdsgsdgfsdgdf'),
+(4, 2412, 'gsdgdsg'),
+(5, 245333, 'gdsgsdgfsdgdf'),
+(6, 2412, 'gsdgdsg'),
+(7, 245333, 'gdsgsdgfsdgdf'),
+(8, 0, '');
 
 -- --------------------------------------------------------
 
@@ -60,6 +85,17 @@ CREATE TABLE `klient` (
   `tel` int(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Zrzut danych tabeli `klient`
+--
+
+INSERT INTO `klient` (`id_klient`, `imie`, `nazwisko`, `tel`) VALUES
+(1, 'dgsgefdgsd', 'gsdgsdgdsg', 231451534),
+(2, 'dgsgefdgsd', 'gsdgsdgdsg', 231451534),
+(3, 'dgsgefdgsd', 'gsdgsdgdsg', 231451534),
+(4, 'dgsgefdgsd', 'gsdgsdgdsg', 231451534),
+(5, '', '', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -70,8 +106,20 @@ CREATE TABLE `naprawa` (
   `id_naprawa` int(11) NOT NULL,
   `id_auto` int(11) NOT NULL,
   `zalecenia` text NOT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  `przebieg` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `naprawa`
+--
+
+INSERT INTO `naprawa` (`id_naprawa`, `id_auto`, `zalecenia`, `data`, `przebieg`) VALUES
+(1, 1, 'ascvaxcsahcvbjhkb khjb kjhbd kjsabkfkasj bfkjsab jkf', '0011-11-11', ''),
+(2, 2, 'ascvaxcsahcvbjhkb khjb kjhbd kjsabkfkasj bfkjsab jkf', '0011-11-11', ''),
+(3, 3, 'ascvaxcsahcvbjhkb khjb kjhbd kjsabkfkasj bfkjsab jkf', '0011-11-11', ''),
+(4, 4, 'ascvaxcsahcvbjhkb khjb kjhbd kjsabkfkasj bfkjsab jkf', '0011-11-11', '1111111111'),
+(5, 5, 'jkdsbfujdkahflkas hklsahf ljkashlk hwaslk hflkah lkjash kljashf lkashf lkashlkf hsalk fhskla hfkosa jlkasnh flasjkhf lkasffj slak hf lkash flkasj fglkafkasfaskjf liashf oliashn laskh fnlask fnlask fnlask fsilakhlks ahfljkadhfoklasjhfas lkdasfhoasjhfoiashf oish oiuh iohoihoijkl ', '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -84,6 +132,20 @@ CREATE TABLE `naprawa_cena` (
   `id_naprawa` int(11) NOT NULL,
   `id_cena` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `naprawa_cena`
+--
+
+INSERT INTO `naprawa_cena` (`id_naprawa_cena`, `id_naprawa`, `id_cena`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 2, 3),
+(4, 3, 4),
+(5, 3, 5),
+(6, 4, 6),
+(7, 4, 7),
+(8, 5, 8);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -131,31 +193,31 @@ ALTER TABLE `naprawa_cena`
 -- AUTO_INCREMENT dla tabeli `auto`
 --
 ALTER TABLE `auto`
-  MODIFY `id_auto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_auto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `cena`
 --
 ALTER TABLE `cena`
-  MODIFY `id_cena` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cena` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT dla tabeli `klient`
 --
 ALTER TABLE `klient`
-  MODIFY `id_klient` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_klient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `naprawa`
 --
 ALTER TABLE `naprawa`
-  MODIFY `id_naprawa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_naprawa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `naprawa_cena`
 --
 ALTER TABLE `naprawa_cena`
-  MODIFY `id_naprawa_cena` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_naprawa_cena` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Ograniczenia dla zrzutów tabel
