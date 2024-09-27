@@ -5,8 +5,6 @@ body {
     padding: 0;
 }
 
-
-
 h1 {
     text-align: center;
 }
@@ -33,12 +31,12 @@ button {
     cursor: pointer;
 }
 
-#dane{
-    width: 103%;
-}
-
 button:hover {
     background-color: #111;
+}
+
+#dane{
+    width: 103%;
 }
 
 .form-row {
@@ -49,7 +47,8 @@ button:hover {
 .form-row div {
     width: 48%;
 }
-.container {
+
+main {
     width: fit-content;
     min-width: 600px;
     margin: 40px auto;
@@ -60,14 +59,11 @@ button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-
 label {
     display: block;
     margin-top: 15px;
     font-weight: bold;
 }
-
 
 textarea {
     resize: vertical;
@@ -166,24 +162,31 @@ nav:after {
 #marka {
     width: 92%;
 }
+
 #model{
     width: 92%;
 }
+
 #nazwisko{
     width: 92%;
 }
+
 #imie{
     width: 92%;
 }
+
 #szukaj{
     width: 104%;
 }
+
 #numertel{
     width: 92%;
 }
+
 #rejestracja{
     width: 92%;
 }
+
 .marka{
     width: 100%;
 }
@@ -193,29 +196,68 @@ table {
     border-collapse: collapse;
 }
 
- th, td, thead {
+th, td, thead {
     border: 1px solid gray;
     padding: 7px;
     margin: 0;
     font-size: large;
 } 
+
 th{
     background-color: lightgray;
 }
+
 .zalecenia{
     width: 30%;
 }
-#usun{
+
+.usun{
     background-color: red;
     margin: 0;
 }
-#usun:hover {
+
+.usun:hover {
     background-color: darkred;
 }
-#edytuj, #wyswietl{
+
+.marka, .wyswietl{
     background-color: grey;
     margin: 0;
 }
-#edytuj:hover, #wyswietl:hover{
+
+.edytuj:hover, .wyswietl:hover{
     background-color: #525151;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pagination span.current {
+    color: #000;
+    font-weight: bold;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.pagination a:hover {
+    color: #0056b3;
+}
+
+.pagination a:first-child,
+.pagination a:last-child {
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
 }
