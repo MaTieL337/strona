@@ -10,14 +10,15 @@
     <nav>
         <ul>
             <li><a href="wprowadz-dane.html">Wprowadź dane auta</a></li>
-            <li><a href="wyszukajauto.html">Wyszukaj auto</a></li>
-            <li><a href="#">Wyświetl wszystkie samochody z ostatniego tygodnia</a></li>
+            <li><a href="wyszukaj-auto.html">Wyszukaj auto</a></li>
+            <li><a href="ostatni-tydzien.php">Wyświetl wszystkie samochody z ostatniego tygodnia</a></li>
         </ul>
     </nav>
-    <div class="container">
+
+    <main>
         <h1>Wprowadź dane auta</h1>
 
-        <form action="wprowadzanie.php" method="post">
+        <form action="insert.php" method="post">
             <label for="rejestracja">Numer rejestracyjny:</label>
             <input type="text" class="rejestracja" name="rejestracja">
 
@@ -66,7 +67,7 @@
 
             <button type="submit" id="dane">Zapisz dane</button>
         </form>
-    </div>
+    </main>
 
     <script>
         let repairCount = 1;
@@ -99,6 +100,5 @@
             section.remove();
         }
     </script>
-
 </body>
 </html>
