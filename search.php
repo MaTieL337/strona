@@ -70,7 +70,7 @@ $total_pages = ceil($total_rows / $limit);
 $offset = ($page - 1) * $limit;
 
 // Execute the search query
-$query .= " LIMIT $limit OFFSET $offset";
+$query .= " ORDER BY naprawa.data DESC, naprawa.id_naprawa DESC LIMIT $limit OFFSET $offset";
 $result = $conn->query($query);
 
 ?>

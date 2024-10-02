@@ -18,8 +18,7 @@ $total_pages = 0;
 $query = "SELECT auto.rejestracja, auto.model, auto.marka, klient.imie, klient.nazwisko, klient.tel, naprawa.id_naprawa, naprawa.data, naprawa.zalecenia , naprawa.przebieg
           FROM auto 
           INNER JOIN klient ON auto.klient = klient.id_klient
-          INNER JOIN naprawa ON auto.id_auto = naprawa.auto 
-          ORDER BY naprawa.data DESC, naprawa.id_naprawa DESC 
+          INNER JOIN naprawa ON auto.id_auto = naprawa.auto  
           WHERE DATEDIFF(CURDATE(), naprawa.data) <= 7
   AND DATEDIFF(CURDATE(), naprawa.data) >= 0";
 
@@ -31,7 +30,7 @@ $offset = ($page - 1) * $limit;
 
 
 // Execute the search query
-$query .= " LIMIT $limit OFFSET $offset";
+$query .= " ORDER BY naprawa.data DESC, naprawa.id_naprawa DESC LIMIT $limit OFFSET $offset ";
 $result = $conn->query($query);
 
 ?>
