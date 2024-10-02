@@ -159,35 +159,15 @@ nav:after {
     clear: both;
 }
 
-#marka {
-    width: 92%;
-}
-
-#model{
-    width: 92%;
-}
-
-#nazwisko{
-    width: 92%;
-}
-
-#imie{
-    width: 92%;
-}
-
-#szukaj{
+#szukaj {
     width: 104%;
 }
 
-#numertel{
+#numertel, #rejestracja, #imie, #nazwisko, #model, #marka {
     width: 92%;
 }
 
-#rejestracja{
-    width: 92%;
-}
-
-.marka{
+#marka {
     width: 100%;
 }
 
