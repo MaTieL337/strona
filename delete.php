@@ -9,6 +9,13 @@ require_once('connect.php');
 // Create connection
 $conn = new mysqli($host, $username, $password, $database);
 
+$query = "DELETE FROM cena WHERE naprawa = " . $_POST['id'];
+
+$conn->query($query);
+
+$query = "DELETE FROM naprawa WHERE id_naprawa = " . $_POST['id'];
+
+$conn->query($query);
 
 echo '<!DOCTYPE html>
     <html lang="pl">
