@@ -77,7 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id_naprawa = $conn->insert_id; // Get the last inserted repair ID
 
-    // ? Works ?
     $repair_names = $_POST['nazwa-naprawy'];
     $repair_prices = $_POST['cena'];
     
@@ -86,6 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Insert into 'cena' table
         $sql_cena = "INSERT INTO cena (naprawa, cena, opis) VALUES ('$id_naprawa', '$cena', '$repair_name')";
+        $conn->query($sql_cena);
     }
 
     echo '<!DOCTYPE html>
