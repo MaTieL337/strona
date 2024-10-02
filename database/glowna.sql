@@ -43,6 +43,7 @@ CREATE TABLE `auto` (
 
 CREATE TABLE `cena` (
   `id_cena` int(11) NOT NULL,
+  `naprawa` int(11) NOT NULL,
   `opis` varchar(1024) NOT NULL,
   `cena` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -72,18 +73,6 @@ CREATE TABLE `naprawa` (
   `zalecenia` mediumtext NOT NULL,
   `data` date NOT NULL DEFAULT current_timestamp(),
   `przebieg` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `naprawa_cena`
---
-
-CREATE TABLE `naprawa_cena` (
-  `id_naprawa_cena` int(11) NOT NULL,
-  `naprawa` int(11) NOT NULL,
-  `cena` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -117,14 +106,6 @@ ALTER TABLE `naprawa`
   ADD KEY `auto` (`auto`);
 
 --
--- Indexes for table `naprawa_cena`
---
-ALTER TABLE `naprawa_cena`
-  ADD PRIMARY KEY (`id_naprawa_cena`),
-  ADD KEY `naprawa` (`naprawa`,`cena`),
-  ADD KEY `cena` (`cena`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -153,12 +134,6 @@ ALTER TABLE `naprawa`
   MODIFY `id_naprawa` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `naprawa_cena`
---
-ALTER TABLE `naprawa_cena`
-  MODIFY `id_naprawa_cena` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
 
@@ -175,12 +150,10 @@ ALTER TABLE `naprawa`
   ADD CONSTRAINT `naprawa_ibfk_1` FOREIGN KEY (`auto`) REFERENCES `auto` (`id_auto`);
 
 --
--- Constraints for table `naprawa_cena`
+-- Constraints for table `cena`
 --
-ALTER TABLE `naprawa_cena`
-  ADD CONSTRAINT `naprawa_cena_ibfk_1` FOREIGN KEY (`naprawa`) REFERENCES `naprawa` (`id_naprawa`),
-  ADD CONSTRAINT `naprawa_cena_ibfk_2` FOREIGN KEY (`cena`) REFERENCES `cena` (`id_cena`);
-COMMIT;
+ALTER TABLE `cena`
+  ADD CONSTRAINT `cena_ibfk_1` FOREIGN KEY (`naprawa`) REFERENCES `naprawa` (`id_naprawa`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $id_auto = $row['id_auto'];
     } else { // If not, insert new car
-        $sql_auto = "INSERT INTO auto (rejestracja, model, marka, id_klient) VALUES ('$rejestracja', '$model', '$marka', '$id_klient')";
+        $sql_auto = "INSERT INTO auto (rejestracja, model, marka, klient) VALUES ('$rejestracja', '$model', '$marka', '$id_klient')";
 
         if (!$conn->query($sql_auto)) {
             die("Błąd zapytania: " . $conn->error);
@@ -85,15 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cena = $repair_prices[$index];
         
         // Insert into 'cena' table
-        $sql_cena = "INSERT INTO cena (cena, opis) VALUES ('$cena', '$repair_name')";
-        
-        if ($conn->query($sql_cena) === TRUE) {
-            $id_cena = $conn->insert_id; // Get the last inserted price ID
-            
-            // Link repair and price in 'naprawa_cena' table
-            $sql_naprawa_cena = "INSERT INTO naprawa_cena (naprawa, cena) VALUES ('$id_naprawa', '$id_cena')";
-            $conn->query($sql_naprawa_cena);
-        }
+        $sql_cena = "INSERT INTO cena (naprawa, cena, opis) VALUES ('$id_naprawa', '$cena', '$repair_name')";
     }
 
     echo '<!DOCTYPE html>
