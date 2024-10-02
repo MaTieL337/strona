@@ -19,6 +19,7 @@ $query = "SELECT auto.rejestracja, auto.model, auto.marka, klient.imie, klient.n
           FROM auto 
           INNER JOIN klient ON auto.klient = klient.id_klient
           INNER JOIN naprawa ON auto.id_auto = naprawa.auto 
+          ORDER BY naprawa.data DESC, naprawa.id_naprawa DESC 
           WHERE DATEDIFF(CURDATE(), naprawa.data) <= 7
   AND DATEDIFF(CURDATE(), naprawa.data) >= 0";
 
@@ -84,8 +85,8 @@ $result = $conn->query($query);
                             <td><?php echo htmlspecialchars($row['data']); ?></td>
                             <td><?php echo htmlspecialchars($row['zalecenia']); ?></td>
                             <td> <form action="delete.php" method="post"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="usun">Usuń</button> </form> </td>
-                            <td> <form action="edit.php" method="post"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="edytuj">Edytuj</button>  </form> </td>
-                            <td> <form action="display.php" method="post"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="wyswietl">Wyświetl</button>  </form> </td>
+                            <td> <form action="edytuj-dane.php" method="post"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="edytuj">Edytuj</button>  </form> </td>
+                            <td> <form action="display.php" method="get"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="wyswietl">Wyświetl</button>  </form> </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
