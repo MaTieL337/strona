@@ -19,7 +19,6 @@ $query = "SELECT auto.rejestracja, auto.model, auto.marka, klient.imie, klient.n
           FROM auto 
           INNER JOIN klient ON auto.klient = klient.id_klient
           INNER JOIN naprawa ON auto.id_auto = naprawa.auto 
-          ORDER BY naprawa.data DESC, naprawa.id_naprawa DESC
           WHERE 1=1";
 
 // Check if any fields were filled out and add to the query
