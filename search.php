@@ -124,7 +124,7 @@ $result = $conn->query($query);
                             <td><?php echo htmlspecialchars($row['zalecenia']); ?></td>
                             <td> <form action="delete.php" method="post"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="usun">Usuń</button> </form> </td>
                             <td> <form action="edytuj-dane.php" method="post"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="edytuj">Edytuj</button>  </form> </td>
-                            <td> <form action="display.php" method="get"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="wyswietl">Wyświetl</button>  </form> </td>
+                            <td> <form action="display.php" target="_blank" method="get"> <input type="hidden" name="id" value="<?php echo $row['id_naprawa'] ?>"> <button class="wyswietl">Wyświetl</button>  </form> </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
