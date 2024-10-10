@@ -120,7 +120,7 @@ $row = $result->fetch_assoc();
                     </div>
                     <div class="price-container">
                         <label for="cena-${repairCount}">Cena:</label>
-                        <input type="text" id="cena-${repairCount}" name="cena[]" >
+                        <input type="number" id="cena-${repairCount}" name="cena[]" >
                     </div>
                     <button type="button" class="remove-repair-btn" onclick="removeRepairSection(this)"><b>X</b></button>
                 </div>
