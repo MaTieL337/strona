@@ -31,12 +31,12 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #111;
+#dane {
+    width: 103%;
 }
 
-#dane{
-    width: 103%;
+button:hover {
+    background-color: #111;
 }
 
 .form-row {
@@ -119,6 +119,7 @@ textarea {
     background-color: white;
     color: red;
 }
+
 nav {
     background-color: #333;
     overflow: hidden;
@@ -163,14 +164,6 @@ nav:after {
     width: 104%;
 }
 
-#numertel, #rejestracja, #imie, #nazwisko, #model, #marka {
-    width: 92%;
-}
-
-#marka {
-    width: 100%;
-}
-
 table {
     border: 2px solid black;
     border-collapse: collapse;
@@ -183,15 +176,15 @@ th, td, thead {
     font-size: large;
 } 
 
-th{
+th {
     background-color: lightgray;
 }
 
-.zalecenia{
+.zalecenia {
     width: 30%;
 }
 
-.usun{
+.usun {
     background-color: red;
     margin: 0;
 }
@@ -200,44 +193,16 @@ th{
     background-color: darkred;
 }
 
-.marka, .wyswietl{
+.edytuj {
     background-color: grey;
     margin: 0;
 }
 
-.edytuj:hover, .wyswietl:hover{
+.wyswietl {
     background-color: #525151;
+    margin: 0;
 }
 
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.pagination span.current {
-    color: #000;
-    font-weight: bold;
-}
-
-.pagination a {
-    text-decoration: none;
-    color: #007bff;
-    transition: color 0.3s ease;
-}
-
-.pagination a:hover {
-    color: #0056b3;
-}
-
-.pagination a:first-child,
-.pagination a:last-child {
-    border-radius: 20px;
-    padding: 5px 15px;
-}
-
-.pagination a {
-    padding: 5px 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+#edytuj:hover, #wyswietl:hover {
+    background-color: #525151;
 }
