@@ -1,5 +1,5 @@
 <?php
-  require('./fpdf/fpdf.php');
+  require('./tfpdf/tfpdf.php');
   require_once('connect.php');
     
   // Create connection
@@ -21,20 +21,23 @@
   $row = $result->fetch_assoc();
 
   // Create pdf
-  $pdf = new FPDF('P', 'mm', 'A4');
+  $pdf = new tFPDF('P', 'mm', 'A4');
+  $pdf->AddFont('DejaVu','','DejaVuSansCondensed.ttf',true);
+  $pdf->AddFont('DejaVu', 'B', 'DejaVuSansCondensed-Bold.ttf', true);
+  // $pdf->AddFont('DejaVu', 'I', 'DejaVuSansCondensed-Oblique.ttf', true);
   
   // Add page
   $pdf->AddPage();
 
   // Heading
-  $pdf->SetFont('Arial', 'B', 16);
+  $pdf->SetFont('DejaVu', 'B', 16);
 
   $pdf->Cell(71, 10, '', 0, 0);
   $pdf->Cell(59, 10, 'Rozliczenie', 0, 0);
   $pdf->Cell(59, 10, '', 0, 1);
 
   // Left bar
-  $pdf->SetFont('Arial', 'B', 21);
+  $pdf->SetFont('DejaVu', 'B', 21);
 
   $pdf->Cell(71, 5, 'Klient', 0, 0);
   $pdf->Cell(59, 5, '', 0, 0);
